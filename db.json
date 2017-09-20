@@ -1,0 +1,166 @@
+{
+  "supervisores":
+  [
+    {
+      "id": "6598f472-179c-4d44-b24d-e4c436812b74",
+      "nome": "Brant",
+      "sobreNome": "Piborn",
+      "operadores":[
+        [{
+          "id": "9e072114-dfe5-403d-8389-fbeb3cd321be",
+          "nome": "Waneta",
+          "sobreNome": "Popping"
+        }, {
+          "id": "0653b2dd-3abf-4454-9d8e-8395defcf89c",
+          "nome": "Skelly",
+          "sobreNome": "Barchrameev"
+        }, {
+          "id": "f542d5cd-2e88-4344-a8f8-bb1b879ad466",
+          "nome": "Edie",
+          "sobreNome": "Wogdon"
+        }, {
+          "id": "3130ee15-d06a-471f-b8f4-3411c0de7a9c",
+          "nome": "Alley",
+          "sobreNome": "Freke"
+        }, {
+          "id": "eacc6276-04b2-4133-b2fb-229d19acd900",
+          "nome": "Chet",
+          "sobreNome": "Laxe"
+        }, {
+          "id": "5de21836-b150-43c4-9bef-0564bcf04345",
+          "nome": "Donn",
+          "sobreNome": "Rippingale"
+        }, {
+          "id": "2ce3fa55-cb55-433a-a8f7-0f656dcc1f2f",
+          "nome": "Adan",
+          "sobreNome": "Fossord"
+        }]
+      ]
+    },
+    {
+      "id": "42947ee3-12c6-43d0-b76f-eca012587463",
+      "nome": "Joye",
+      "sobreNome": "Tomlin",
+      "operadores":[{
+        "id": "061e6a49-1d54-4a5c-afc6-67842752a65f",
+        "nome": "Ava",
+        "sobreNome": "Selburn"
+      }, {
+        "id": "ae9fd54b-0f51-418e-8139-4783e5f08aa8",
+        "nome": "Bee",
+        "sobreNome": "Cregan"
+      }, {
+        "id": "4946b385-0445-40e2-af34-90c2912c6e51",
+        "nome": "Madlen",
+        "sobreNome": "Tunkin"
+      }, {
+        "id": "c4d3075d-d1cc-4c14-81c2-e8fec0cee851",
+        "nome": "Lexy",
+        "sobreNome": "Winfield"
+      }, {
+        "id": "a0185081-bd8c-4eb7-8009-a32362dd2302",
+        "nome": "Ahmad",
+        "sobreNome": "Snead"
+      }, {
+        "id": "05918d6c-113d-4a75-8de9-9687fdd8b54a",
+        "nome": "Rosaline",
+        "sobreNome": "Curner"
+      }, {
+        "id": "346e2507-1671-41c5-aa74-f4d4ab51d33f",
+        "nome": "Hashim",
+        "sobreNome": "Lightewood"
+      }]
+    },
+    {
+      "id": "e8431121-165c-48d2-aa27-8b9fb04c2499",
+      "nome": "Nappie",
+      "sobreNome": "Bouzek",
+      "operadores":[{
+        "id": "92423b84-be95-47ee-a476-c1bd52834b2c",
+        "nome": "Henrieta",
+        "sobreNome": "Grishankov"
+      }, {
+        "id": "887b6fc9-fc59-4a35-8c7e-32f0ba7def48",
+        "nome": "Gaye",
+        "sobreNome": "Brabbs"
+      }, {
+        "id": "cd69c633-577d-42b4-a557-b079f9f7deed",
+        "nome": "Roosevelt",
+        "sobreNome": "Stenbridge"
+      }, {
+        "id": "7abb1bcc-6531-4105-a1b7-300da7ee49ef",
+        "nome": "Elsey",
+        "sobreNome": "Risdall"
+      }, {
+        "id": "761f0aca-6d65-4675-bfcc-4b70f510b814",
+        "nome": "Giordano",
+        "sobreNome": "Shury"
+      }, {
+        "id": "38e99c12-79eb-439b-aacc-5af447b9bf0b",
+        "nome": "Patton",
+        "sobreNome": "Asif"
+      }, {
+        "id": "42247164-7362-4bf4-959d-838bcb743a7b",
+        "nome": "Elyse",
+        "sobreNome": "Pitbladdo"
+      }]      
+    }
+  ],
+  "checklist": [
+    {
+      "id": 1,
+      "nome": "monitoria padrão",
+      "itens": [
+        {
+          "id": 1,
+          "descricao": "Operador se indentificou como representante da empresa Werter S/A",
+          "descricaoApreviada": "Indentificação",
+          "peso": 0,
+          "eEliminatoria": true
+        },
+        {
+          "id": 2,
+          "descricao": "Operador pediu para o cliente confirmar os dados",
+          "descricaoApreviada": "Confirmação de dados",
+          "peso": 4,
+          "eEliminatoria": false
+        },
+        {
+          "id": 3,
+          "descricao": "Operador aprensentou para o cliente as propostas",
+          "descricaoApreviada": "Passando as propostas",
+          "peso": 2,
+          "eEliminatoria": false
+        },
+        {
+          "id": 4,
+          "descricao": "Operador pediu mais informaçoes de contatos do cliente",
+          "descricaoApreviada": "dados",
+          "peso": 3,
+          "eEliminatoria": false
+        },
+        {
+          "id": 5,
+          "descricao": "Operador usou linguagem chula",
+          "descricaoApreviada": "Contato informal",
+          "peso": 2,
+          "eEliminatoria": false
+        },
+        {
+          "id": 6,
+          "descricao": "Mais alguma coisa que pode tirar a pontuação do operador",
+          "descricaoApreviada": "Alguma coisa",
+          "peso": 2.5,
+          "eEliminatoria": false
+        },
+        {
+          "id": 7,
+          "descricao": "Operador passou o numero de protocolo para o cliente ?",
+          "descricaoApreviada": "Protocolo",
+          "peso": 3.5,
+          "eEliminatoria": false
+        }
+      ]
+    }
+  ]  
+}

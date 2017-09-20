@@ -19,6 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "w",
       "styles": [
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/bulma/css/bulma.css",
+        "../node_modules/bulmaswatch/materia/bulmaswatch.min.css",
+        
         "styles.css"
       ],
       "scripts": [],
@@ -55,6 +59,25 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "component": {
+      "spec": false,
+      "inlineStyle": true,
+      "inlineTemplate": false      
+    },
+    "class": {
+      "spec": false
+    },
+    "guard": {
+      "spec": false
+    },
+    "module": {
+      "spec": false
+    },
+    "pipe": {
+      "spec": false
+    },
+    "service": {
+      "spec": false
+    } 
   }
 }

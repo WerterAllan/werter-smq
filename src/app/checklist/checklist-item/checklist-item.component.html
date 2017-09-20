@@ -1,0 +1,39 @@
+<form ngform="meuForm">
+
+  <table class="table is-striped is-fullwidth">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Descrição</th>
+        <th>Abreviada</th>
+        <th>Atendeu</th>
+        <th>Comentário</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>Item</th>
+        <th>Descrição</th>
+        <th>Abreviada</th>
+        <th>Atendeu</th>
+        <th>Comentário</th>
+        
+    </tfoot>
+    <tbody>
+      <tr *ngFor="let item of itens; let i = index">
+        <td> {{ item.id }} </td>
+        <td> {{ item.descricao }} </td>
+        <td> {{ item.descricaoAbreviada }} </td>
+        <td>
+          <w-radio [options]="atendeuItemOptions" (mudouOpcao)="mudouAvaliacao($event)" [indiceLinha]="i" name="atendeu" [(ngModel)]="item.atendeuItem" ></w-radio>          
+        </td>
+        <td>
+          <input type="text" class="input is-primary">
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+</form>
