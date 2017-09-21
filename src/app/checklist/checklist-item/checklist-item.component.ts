@@ -8,29 +8,7 @@ import { RadioOption } from './../../shared/radio/radio-option.model';
 })
 export class ChecklistItemComponent implements OnInit {
 
-  @Input() itens: ChecklistItem[] = [
-    {
-      id: 1, descricao: 'O operador se apresentou como funcionario da Werter S/A',
-      descricaoAbreviada: '',
-      peso: 5,
-      eEliminatoria: false,
-      atendeuItem: ''
-    },
-    {
-      id: 2, descricao: 'O operador se apresentou como funcionario da Werter S/A',
-      descricaoAbreviada: '',
-      peso: 5,
-      eEliminatoria: false,
-      atendeuItem: ''
-    },
-    {
-      id: 3, descricao: 'O operador se apresentou como funcionario da Werter S/A',
-      descricaoAbreviada: '',
-      peso: 5,
-      eEliminatoria: false,
-      atendeuItem: ''
-    },
-  ];
+  @Input() itens: ChecklistItem[] = [];
 
   atendeuItemOptions: RadioOption[] = [
     { label: 'Sim', value: 'S' },

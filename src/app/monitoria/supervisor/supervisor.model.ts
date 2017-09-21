@@ -1,7 +1,7 @@
 import { Operador } from '../operador.model';
 
 export interface Supervisor {
-  id: string;
+  id: number;
   nome: string;
   sobreNome: string;
   operadores: Operador[];

@@ -1,48 +1,45 @@
+<w-detalhes-monitoria></w-detalhes-monitoria>
+<br>
+
+
 <table class="table is-striped is-fullwidth">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Nome</th>
-      <th>Sobre Nome</th>
-      <th>Prova 1</th>
-      <th>Prova 2</th>
-      <th>Prova 3</th>
-      <th>Media</th>
+      <th>Indice</th>
+      <th>Operador</th>
+      <th>Monitoria 1</th>
+      <th>Monitoria 2</th>
+      <th>Monitoria 3</th>
+      <th>Média</th>
     </tr>
   </thead>
   <tfoot>
     <tr>
-      <th>Id</th>
-      <th>Nome</th>
-      <th>Sobre Nome</th>
-      <th>Prova 1</th>
-      <th>Prova 2</th>
-      <th>Prova 3</th>
-      <th>Media</th>
-    </tr>
+      <th>Indice</th>
+      <th>Operador</th>
+      <th>Monitoria 1</th>
+      <th>Monitoria 2</th>
+      <th>Monitoria 3</th>
+      <th>Média</th>
   </tfoot>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Jose</td>
-      <td>Guilherme</td>
-      <td> <button class="button is-primary " disabled>Nota: 100</button> </td>
-      <td> <button class="button is-primary">Avaliar</button> </td>
-      <td> <button class="button is-primary">Avaliar</button> </td>
-      <td>50</td>
+  <tbody >
+    <tr  *ngFor="let operador of (supervisor | async)?.operadores; let indice = index">
+      <td> {{ indice }} </td>
+      <td> {{ operador.nome + ' ' + operador.sobreNome }} </td>
+      <td>
+        <button class="button">Avaliar</button>
+      </td>
+      <td>
+        <button class="button is-primary">Nota: 100</button>
+      </td>
+      <td>
+        <button class="button is-danger" disabled>Passou</button>
+      </td>
+      <td>
+        50
+      </td>
 
     </tr>
-
-    <tr>
-      <td>2</td>
-      <td>Jose</td>
-      <td>Guilherme</td>
-      <td> <button class="button is-primary">Avaliar</button> </td>
-      <td> <button class="button is-danger" disabled >Nota: 0</button> </td>
-      <td> <button class="button is-danger" disabled >Nota: 0</button> </td>
-      <td> 25 </td>
-    </tr>
-
 
   </tbody>
 </table>

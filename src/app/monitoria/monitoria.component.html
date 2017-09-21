@@ -15,54 +15,21 @@
 
   
 
-  <table class="table is-striped is-fullwidth">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Sobre Nome</th>
-        <th>Prova 1</th>
-        <th>Prova 2</th>
-        <th>Prova 3</th>
-        <th>Media</th>
-      </tr>
-    </thead>
-    <tfoot>
-      <tr>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Sobre Nome</th>
-        <th>Prova 1</th>
-        <th>Prova 2</th>
-        <th>Prova 3</th>
-        <th>Media</th>
-      </tr>
-    </tfoot>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Jose</td>
-        <td>Guilherme</td>
-        <td> <button class="button is-primary " disabled="">Nota: 100</button> </td>
-        <td> <button class="button is-primary">Avaliar</button> </td>
-        <td> <button class="button is-primary">Avaliar</button> </td>
-        <td>50</td>
-
-      </tr>
-
-      <tr>
-        <td>2</td>
-        <td>Jose</td>
-        <td>Guilherme</td>
-        <td> <button class="button is-primary">Avaliar</button> </td>
-        <td> <button class="button is-danger" disabled="">Nota: 0</button> </td>
-        <td> <button class="button is-danger" disabled="">Nota: 0</button> </td>
-        <td> 25 </td>
-      </tr>
-
-
-    </tbody>
-  </table>
+    <nav class="level">
+        <!-- Lado Esquerdo -->
+        <div class="left-level">
+          <div class="level-item">
+            <p class="subtitle is-5">
+              <strong>Operador:</strong> Jose Carlos
+            </p>
+          </div>
+        </div>
+      </nav>
+      
+      
+      <button (click)="buscarGravacao()" *ngIf="!detalhesDaGravacao" class="button">Buscar Gravação</button>
+      
+      <w-detalhes-gravacao *ngIf="detalhesDaGravacao" [detalhesDaGravacao]="detalhesDaGravacao"></w-detalhes-gravacao>
 
 
 </section>

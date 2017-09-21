@@ -16,10 +16,12 @@ export class SupervisorService {
 
   constructor(private http: Http) { }
 
-  supervisoresPorId(id: string): Observable<Supervisor> {
+  supervisoresPorId(id: number): Observable<Supervisor> {
+
+    console.log("id", id);
 
     return this.http.get(`${SMQ_API}/supervisores?id=${id}`)
-      .map(response => response.json())
+      .map(response => response.json()[0])
       .do(retorno => console.log('retorno', retorno))
       .catch(ErrorHandler.handlerError);
 

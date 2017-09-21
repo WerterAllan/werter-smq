@@ -1,22 +1,31 @@
+
+// modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
-import { ROUTES } from './app.routes';
+// services
+import { ChecklistService } from './checklist/checklist.service';
+import { SupervisorService } from './monitoria/supervisor/supervisor.service';
+import { DetalhesGravacaoService } from './monitoria/detalhes-gravacao/detalhes-gravacao.service';
 
+// components
 import { AppComponent } from './app.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { SupervisorComponent } from './monitoria/supervisor/supervisor.component';
-import { SupervisorService } from './monitoria/supervisor/supervisor.service';
 import { MonitoriaComponent } from './monitoria/monitoria.component';
 import { LoginComponent } from './login/login.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistItemComponent } from './checklist/checklist-item/checklist-item.component';
 import { RadioComponent } from './shared/radio/radio.component';
-import { FormsModule } from '@angular/forms';
 
+// rotas
+import { ROUTES } from './app.routes';
+import { DetalhesGravacaoComponent } from './monitoria/detalhes-gravacao/detalhes-gravacao.component';
+import { DetalhesMonitoriaComponent } from './monitoria/detalhes-monitoria/detalhes-monitoria.component';
 
 
 @NgModule({
@@ -29,7 +38,9 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     ChecklistComponent,
     ChecklistItemComponent,
-    RadioComponent
+    RadioComponent,
+    DetalhesGravacaoComponent,
+    DetalhesMonitoriaComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +48,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [SupervisorService],
+  providers: [SupervisorService, ChecklistService, DetalhesGravacaoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -46,7 +46,6 @@ export class RadioComponent implements OnInit, ControlValueAccessor {
    * Set the function to be called when the control receives a change event.
    */
   registerOnChange(fn: any): void {
-    console.log("register", fn);
     this.onChange = fn;
   }
   /**
