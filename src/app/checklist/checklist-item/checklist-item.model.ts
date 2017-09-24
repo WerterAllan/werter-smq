@@ -5,6 +5,6 @@ export interface ChecklistItem {
   descricaoAbreviada: string;
   peso: number;
   eEliminatoria: boolean;
-  atendeuItem: string;
+  atendeuItem?: string;
   comentario?: string;
 }

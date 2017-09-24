@@ -1,3 +1,4 @@
+import { CriarChecklistComponent } from './checklist/criar-checklist/criar-checklist.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistItemComponent } from './checklist/checklist-item/checklist-item.component';
 import { SupervisorComponent } from './monitoria/supervisor/supervisor.component';
@@ -10,5 +11,6 @@ export const ROUTES: Routes = [
   { path: 'itens', component: ChecklistItemComponent },
   { path: 'checklist', component: ChecklistComponent },
   { path: 'supervisor', component: SupervisorComponent },
+  { path: 'criar-checklist', component: CriarChecklistComponent }
 
 ];

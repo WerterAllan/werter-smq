@@ -21,16 +21,11 @@ export class SupervisorComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.supervisorService.supervisoresPorId(1)
-    //   .subscribe(supervisor => this.supervisor = supervisor);
-
-
     this.supervisor = this.supervisorService.supervisoresPorId(1);
 
   }
 
   public buscarGravacao(): void {
-
 
   }
 

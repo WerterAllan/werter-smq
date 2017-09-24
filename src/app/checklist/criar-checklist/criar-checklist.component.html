@@ -1,0 +1,115 @@
+<!-- {{ checklistForm.valid }} <br> {{ checklistForm.value | json }} -->
+
+<nav class="level" *ngIf="nomeChecklistValido">
+  <!-- Right side -->
+  <div class="level-left">
+
+    <div class="level-item">
+      <p class="subtitle is-6">
+        <strong>Nome do Checklist: </strong > 
+          <span class="is-pointer-cursor" (click)="definirNovoNomeDoChecklist()"> {{ nomeDoChecklist }} </span>
+      </p>
+    </div>
+  
+  </div>
+</nav>
+
+<!-- {{ editarNomeDoChecklist | json }} -->
+
+<div [hidden]="!editarNomeDoChecklist">  
+
+    <w-input mensagemDeErro="Campo obrigatório, no minimo 3 caracteres" #iptNomeChecklist >
+        <input class="input"  
+        [(ngModel)]="nomeDoChecklist"
+        type="text"         
+        [class.is-danger]="iptNomeChecklist.model.invalid" 
+        [class.is-success]="iptNomeChecklist.model.valid"
+        placeholder="Nome do checklist"
+        (focusout)="definirNomeChecklist(iptNomeChecklist.model)" 
+        (keyup.enter)="definirNomeChecklist(iptNomeChecklist.model)" 
+        #nomeChecklist
+        minlength="3"
+        maxlength="20"
+        required> 
+
+    </w-input>
+
+  
+</div>
+
+
+<form [formGroup]="checklistForm" novalidate>
+
+  <w-input mensagemDeErro="Campo obrigatório, no minimo 10 caracteres" #iptDescricao >
+      <input type="text" 
+        [class.is-danger]="iptDescricao.temErro()" 
+        [class.is-success]="iptDescricao.eValido()"
+        class="input" 
+        placeholder="Descrição"
+        formControlName="descricao" 
+        autocomplete="off">
+  </w-input>
+
+  
+  <w-input mensagemDeErro="Campo obrigatório, no minimo 3 caracteres" #iptAbreviada>
+      <input class="input" 
+        [class.is-danger]="iptAbreviada.temErro()"
+        [class.is-success]="iptAbreviada.eValido()"
+        placeholder="descrição abreviada" 
+        formControlName="descricaoAbreviada" 
+        autocomplete="off"
+       >
+  </w-input>  
+  <w-input mensagemDeErro="Campo obrigatório, no minimo 2 caracteres" #iptPeso >      
+      <input 
+        [class.is-danger]="iptPeso.temErro()"
+        [class.is-success]="iptPeso.eValido()"
+        currencyMask [options]="{ prefix: '', thousands: '', decimal: '.', allowNegative: false }"
+        placeholder="Peso" 
+        class="input" 
+        formControlName="peso"           
+        maxlength="5">
+  </w-input>
+
+  <w-input mensagemDeErro="Campo obrigatório, deve definir uma opção" >
+      <label class="label">E Eliminatoria</label>
+      <label class="radio">
+          <input type="radio" formControlName="eEliminatoria" value="true">
+          Sim
+        </label>
+        <label class="radio">
+          <input type="radio" formControlName="eEliminatoria" value="false">
+          Não
+        </label>
+  </w-input>
+
+    <button class="button" [disabled]="checklistForm.invalid" 
+                           (click)="adicionarItem(checklistForm.value, iptDescricao)">Adicionar</button>
+
+    <button class="button pull-right" (click)="salvarChecklist()"  [disabled]="!nomeDoChecklist || itensChecklist.length === 0" >Salvar Checklist</button>
+    
+</form>
+
+
+<table class="table is-striped is-fullwidth" [hidden]="itensChecklist.length === 0" >
+    <thead>
+      <tr>        
+        <th>Item</th>
+        <th>Descrição</th>
+        <th>Abreviada</th>
+        <th>Peso</th>        
+        <th>Eliminatoria</th>        
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let item of itensChecklistOrdenado">
+        <td> {{ item.id }} </td>
+        <td> {{ item.descricao }} </td>
+        <td> {{ item.descricaoAbreviada }} </td>
+        <td> {{ item.peso }} </td>
+        <td> {{ item.eEliminatoria === 'true' ? 'Sim' : 'Não' }} </td>
+      </tr>
+  
+    </tbody>
+  </table>

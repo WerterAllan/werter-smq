@@ -27,7 +27,7 @@
       <td> {{ indice }} </td>
       <td> {{ operador.nome + ' ' + operador.sobreNome }} </td>
       <td>
-        <button class="button">Avaliar</button>
+        <button class="button" (click)="avalidarOperador(operador)" >Avaliar</button>
       </td>
       <td>
         <button class="button is-primary">Nota: 100</button>
