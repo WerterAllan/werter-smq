@@ -1,5 +1,9 @@
 <!-- {{ checklistForm.valid }} <br> {{ checklistForm.value | json }} -->
 
+<w-modal [conteudo]="'Deseja realmente salvar este Checklist ?'" [titulo]="'Atenção'" [mostrarModal]="mostrarModalConfirmacao" (confirmou)="salvarChecklist()" (cancelou)="cancelou()">
+
+</w-modal>
+
 <nav class="level" *ngIf="nomeChecklistValido">
   <!-- Right side -->
   <div class="level-left">
@@ -86,7 +90,7 @@
     <button class="button" [disabled]="checklistForm.invalid" 
                            (click)="adicionarItem(checklistForm.value, iptDescricao)">Adicionar</button>
 
-    <button class="button pull-right" (click)="salvarChecklist()"  [disabled]="!nomeDoChecklist || itensChecklist.length === 0" >Salvar Checklist</button>
+    <button class="button pull-right" (click)="abrirModalConfirmacao()"  [disabled]="!nomeDoChecklist || itensChecklist.length === 0" >Salvar Checklist</button>
     
 </form>
 
@@ -104,7 +108,7 @@
     
     <tbody>
       <tr *ngFor="let item of itensChecklistOrdenado">
-        <td> {{ item.id }} </td>
+        <td> {{ item.posicao }} </td>
         <td> {{ item.descricao }} </td>
         <td> {{ item.descricaoAbreviada }} </td>
         <td> {{ item.peso }} </td>

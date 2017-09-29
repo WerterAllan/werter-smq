@@ -1,3 +1,4 @@
+import { RequestOptions, Headers } from '@angular/http';
 // outros imports
 import 'reflect-metadata';
 
@@ -23,9 +24,24 @@ export class ChecklistService {
 
   public buscarChecklist(id: number): Observable<Checklist> {
     return this.http.get(`${SMQ_API}/checklist?id=${id}`)
-    .map(response => response.json()[0])
-    .do(retorno => console.log('retorno', retorno))
-    .catch(ErrorHandler.handlerError);
+      .map(response => response.json()[0])
+      .do(retorno => console.log('retorno', retorno))
+      .catch(ErrorHandler.handlerError);
+  }
+
+  public salvarChecklist(checklist: Checklist): Observable<string> {
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const jsonChecklist = JSON.stringify(checklist);
+
+    return this.http
+      .post(`${SMQ_API}/checklist`, jsonChecklist, new RequestOptions({ headers: headers }))
+      .map(response => response.json())
+      .map(x => x.id)
+      ;
+
   }
 
 

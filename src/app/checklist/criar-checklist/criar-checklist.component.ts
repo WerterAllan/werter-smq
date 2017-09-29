@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, NgModel } from '@angular/forms';
 
+import { PATTERNS } from './../../shared/patterns';
 import { orderBy, max } from 'lodash';
 
-
-import { PATTERNS } from './../../shared/patterns';
 import { InputComponent } from './../../shared/input/input.component';
+import { Checklist } from './../checklist.model';
+import { ChecklistService } from './../checklist.service';
 import { ChecklistItem } from './../checklist-item/checklist-item.model';
+
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,8 +24,13 @@ export class CriarChecklistComponent implements OnInit {
   itensChecklist: ChecklistItem[] = [];
   itensChecklistOrdenado: ChecklistItem[] = [];
   checklistForm: FormGroup;
+  mostrarModalConfirmacao = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder
+    , private checklistService: ChecklistService
+    , private route: Router
+  ) { }
 
   ngOnInit() {
 
@@ -54,7 +62,7 @@ export class CriarChecklistComponent implements OnInit {
 
     const novoItem = this.obterNovoItemAdicionado(item);
     this.itensChecklist.push(novoItem);
-    this.itensChecklistOrdenado = orderBy(this.itensChecklist, ['id'], ['desc']);
+    this.itensChecklistOrdenado = orderBy(this.itensChecklist, ['posicao'], ['desc']);
     this.checklistForm.controls.descricao.setValue('');
     this.checklistForm.controls.descricaoAbreviada.setValue('');
     iptDescricao.input.valueAccessor._elementRef.nativeElement.focus();
@@ -63,25 +71,43 @@ export class CriarChecklistComponent implements OnInit {
 
   private obterNovoItemAdicionado(item: ChecklistItem): ChecklistItem {
 
-    const id = this.obterProximoId();
+    const posicao = this.obterProximaPosicao();
     const novoItem = Object.assign({}, item);
-    novoItem.id = id;
+    novoItem.posicao = posicao;
     return novoItem;
 
   }
 
-  private obterProximoId(): number {
+  private obterProximaPosicao(): number {
 
-    const ultimoId = max(this.itensChecklist.map(x => x.id));
-    if (!ultimoId) {
+    const ultimaPosicao = max(this.itensChecklist.map(x => x.posicao));
+    if (!ultimaPosicao) {
       return 1;
     }
-    return ultimoId + 1;
+    return ultimaPosicao + 1;
 
   }
 
+  public abrirModalConfirmacao(): void {
+    this.mostrarModalConfirmacao = true;
+  }
+
   public salvarChecklist(): void {
-    console.log('salvar checklist', this.itensChecklist);
+
+    const novoChecklist = new Checklist(this.nomeDoChecklist, this.itensChecklist);
+    console.log('anteste do post', novoChecklist);
+
+    this.checklistService.salvarChecklist(novoChecklist)
+      .subscribe((id: any) => {
+        console.log('checklist salvo. Id:', id);
+        this.mostrarModalConfirmacao = false;
+        // TODO: Redirecionar usuario;
+        //this.route.navigate(['/']);
+      });
+  }
+
+  private cancelou(): void {
+    this.mostrarModalConfirmacao = false;
   }
 
 

@@ -1,0 +1,16 @@
+<div class="modal" [class.is-active]="mostrarModal" >
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{ titulo }}</p>
+      <button (click)="cancelar()" class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <span > {{ conteudo }}</span>
+    </section>
+    <footer class="modal-card-foot">
+      <button (click)="confirmar()" class="button is-success">Salvar</button>
+      <button (click)="cancelar()" class="button">Cancelar</button>
+    </footer>
+  </div>
+</div>

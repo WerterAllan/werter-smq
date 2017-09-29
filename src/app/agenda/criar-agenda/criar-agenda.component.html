@@ -1,0 +1,79 @@
+{{ novaAgendaForm.value | json }} <br>
+{{ novaAgendaForm.valid | json }}
+
+<button (click)="listarErros()">Listar erros</button>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">
+        Crie uma nova Agenda.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<form [formGroup]="novaAgendaForm" novalidate>
+
+
+
+  <div class="columns">
+    <div class="column">
+
+      <label class="label">Name</label>
+
+      <w-input mensagemDeErro="Campo obrigatório, no minimo 10 caracteres" #iptNomeAgenda>
+        <input type="text" 
+          [class.is-danger]="iptNomeAgenda.temErro()" 
+          [class.is-success]="iptNomeAgenda.eValido()" 
+          class="input"
+          placeholder="Nome da Agenda" 
+          formControlName="nome" 
+          autocomplete="off">
+      </w-input>
+
+
+    </div>
+
+    <div class="column">
+      <label class="label">Quantidade de provas</label>
+      
+        <w-input mensagemDeErro="Campo deve ter um valor entre 1 a 9" #iptQuantidade>
+          <input 
+            currencyMask [options]="{ prefix: '', thousands: '', precision: '', decimal: '', allowNegative: false }"
+            [class.is-danger]="iptQuantidade.temErro()" 
+            [class.is-success]="iptQuantidade.eValido()" 
+            class="input"
+            placeholder="Quantidade de provas" 
+            formControlName="quantidade" 
+            autocomplete="off">
+        </w-input>
+    </div>
+    
+
+    <div class="column">
+      <div class="field">
+        <label class="label">Gerar</label>
+        <div class="control">
+          <button class="button" [disabled]="iptQuantidade.input.invalid || iptNomeAgenda.input.invalid" (click)="gerarPeriodos(iptQuantidade.input.value)" >Gerar periodos</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <div formArrayName="periodos">
+        <div *ngFor="let periodo of novaAgendaForm.controls.periodos.controls; let i = index" >
+          <div [formGroupName]="i">
+            <label class="label">Prova {{ i + 1 }} </label>
+            <w-periodo-prova [periodoProvaForm]="periodo" ></w-periodo-prova>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</form>

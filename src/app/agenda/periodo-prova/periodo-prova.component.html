@@ -1,0 +1,42 @@
+{{ iptDoDia.value || json }}
+
+<div class="columns" [formGroup]="periodoProvaForm">
+  <div class="column">
+
+    <label class="label">Do dia</label>
+
+    
+
+    <w-input mensagemDeErro="Data inválida" #iptDoDia>
+      <input 
+        [class.is-danger]="iptDoDia.temErro()" 
+        [class.is-success]="iptDoDia.eValido()" 
+        currencyMask [options]="{ prefix: '', thousands: '', precision: '', decimal: '', allowNegative: false }"
+        class="input"
+        placeholder="Do dia" 
+        formControlName="doDia" 
+        autocomplete="off">
+    </w-input>
+    <p *ngIf="periodoProvaForm.hasError('periodoInvalido')"  class="help is-danger"> Periodo de datas inválidas </p>
+
+
+  </div>
+
+  <div class="column">
+    
+      <label class="label">Ate o dia</label>
+      <w-input mensagemDeErro="Data inválida" #iptAteODia>
+        <input 
+          [class.is-danger]="iptAteODia.temErro()" 
+          [class.is-success]="iptAteODia.eValido()" 
+          currencyMask [options]="{ prefix: '', thousands: '', precision: '', decimal: '', allowNegative: false }"
+          class="input"
+          placeholder="Ate o dia" 
+          formControlName="ateODia" 
+          autocomplete="off">
+      </w-input>  
+    
+  </div>
+
+  
+</div>

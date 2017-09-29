@@ -1,6 +1,6 @@
 export interface ChecklistItem {
 
-  id: number;
+  posicao: number;
   descricao: string;
   descricaoAbreviada: string;
   peso: number;

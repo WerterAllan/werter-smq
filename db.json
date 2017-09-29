@@ -182,6 +182,74 @@
           "eEliminatoria": false
         }
       ]
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "nome": "askldjf al",
+      "itens": [
+        {
+          "descricao": "jalkdjflakj",
+          "descricaoAbreviada": "ljlakjsdflajs",
+          "peso": 0.33,
+          "eEliminatoria": "false",
+          "id": 1
+        }
+      ],
+      "id": 5
+    },
+    {
+      "nome": "Teste",
+      "itens": [
+        {
+          "descricao": "laskdjfalk",
+          "descricaoAbreviada": "aklsdjflaksdj",
+          "peso": 0.3,
+          "eEliminatoria": "false",
+          "posicao": 1
+        }
+      ],
+      "id": 6
+    },
+    {
+      "nome": "asdjfklasdj",
+      "itens": [
+        {
+          "descricao": "qljalkjdflkajdslkj",
+          "descricaoAbreviada": "lkjlkasjdflkj",
+          "peso": 0,
+          "eEliminatoria": "false",
+          "posicao": 1
+        }
+      ],
+      "id": 7
+    },
+    {
+      "nome": "asdfasdklfj",
+      "itens": [
+        {
+          "descricao": "jlakjdfajsdlkfjasldkj",
+          "descricaoAbreviada": "aklsdjflkasdj",
+          "peso": 0.3,
+          "eEliminatoria": "false",
+          "posicao": 1
+        },
+        {
+          "descricao": "asdfasdfasdfa",
+          "descricaoAbreviada": "asdfasdf",
+          "peso": 0.3,
+          "eEliminatoria": "false",
+          "posicao": 2
+        }
+      ],
+      "id": 8
     }
   ],
   "gravacoes": [

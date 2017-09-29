@@ -1,35 +1,46 @@
-<section class="hero">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Primary title
-        </h1>
-        <h2 class="subtitle">
-          Primary subtitle
-        </h2>
-      </div>
-    </div>
-  </section>
-
 <section class="section">
 
-  
 
-    <nav class="level">
-        <!-- Lado Esquerdo -->
-        <div class="left-level">
-          <div class="level-item">
-            <p class="subtitle is-5">
-              <strong>Operador:</strong> Jose Carlos
-            </p>
-          </div>
-        </div>
-      </nav>
-      
-      
-      <button (click)="buscarGravacao()" *ngIf="!detalhesDaGravacao" class="button">Buscar Gravação</button>
-      
-      <w-detalhes-gravacao *ngIf="detalhesDaGravacao" [detalhesDaGravacao]="detalhesDaGravacao"></w-detalhes-gravacao>
+
+  <div class="columns">
+    <div class="column is-half">is-half</div>
+    <div class="column">Auto</div>
+    <div class="column">Auto</div>
+  </div>
+
+
+
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <div class="title">Dashboard</div>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <button type="button" class="button is-small">
+              March 8, 2017 - April 6, 2017
+            </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns" *ngFor="let dashboard of dashboardMonitoria">
+
+    <div class="column is-one-third" *ngFor="let card of dashboard.cards">
+      <w-card-monitoria [card]="card"></w-card-monitoria>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+  <button (click)="buscarGravacao()" *ngIf="!detalhesDaGravacao" class="button">Buscar Gravação</button>
+  <w-detalhes-gravacao *ngIf="detalhesDaGravacao" [detalhesDaGravacao]="detalhesDaGravacao"></w-detalhes-gravacao>
 
 
 </section>

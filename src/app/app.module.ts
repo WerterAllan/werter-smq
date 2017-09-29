@@ -1,10 +1,11 @@
 
 // modules
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 // outros modulos
 import { CurrencyMaskModule } from 'ng2-currency-mask';
@@ -34,6 +35,11 @@ import { DetalhesMonitoriaComponent } from './monitoria/detalhes-monitoria/detal
 import { CriarChecklistComponent } from './checklist/criar-checklist/criar-checklist.component';
 import { CommonModule } from '@angular/common';
 import { InputComponent } from './shared/input/input.component';
+import { ModalComponent } from './shared/modal/modal.component';
+import { CardMonitoriaComponent } from './monitoria/card-monitoria/card-monitoria.component';
+import { AgendaComponent } from './agenda/agenda.component';
+import { CriarAgendaComponent } from './agenda/criar-agenda/criar-agenda.component';
+import { PeriodoProvaComponent } from './agenda/periodo-prova/periodo-prova.component';
 
 
 @NgModule({
@@ -50,7 +56,12 @@ import { InputComponent } from './shared/input/input.component';
     DetalhesGravacaoComponent,
     DetalhesMonitoriaComponent,
     CriarChecklistComponent,
-    InputComponent
+    InputComponent,
+    ModalComponent,
+    CardMonitoriaComponent,
+    AgendaComponent,
+    CriarAgendaComponent,
+    PeriodoProvaComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +72,13 @@ import { InputComponent } from './shared/input/input.component';
     CurrencyMaskModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [SupervisorService, ChecklistService, DetalhesGravacaoService],
+  providers: [
+    SupervisorService,
+    ChecklistService,
+    DetalhesGravacaoService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
